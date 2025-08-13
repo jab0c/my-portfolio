@@ -3,7 +3,7 @@
 A minimal, fast portfolio built with **Bootstrap 5** to showcase selected projects.
 
 ## Live
-- **Website:** https://<your-username>.github.io/<repo-name>/
+- **Website:** [https://jab0c.github.io/my-portfolio/](https://jab0c.github.io/my-portfolio)
 
 ## Tech
 - HTML5, CSS3, JavaScript
