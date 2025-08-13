@@ -1,0 +1,14 @@
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build / output (future)
+node_modules/
+dist/
+out/
