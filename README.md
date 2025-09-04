@@ -3,6 +3,8 @@
 A minimal, fast portfolio built with **Bootstrap 5** to showcase selected projects.
 
 ## Live
+- **Website:** [https://www.jab0c.com/](https://www.jab0c.com)
+or
 - **Website:** [https://jab0c.github.io/my-portfolio/](https://jab0c.github.io/my-portfolio)
 
 ## Tech
