@@ -15,12 +15,14 @@ Open `index.html` in a browser (WebStorm’s built-in server works great).
 ## Structure
 ```
 my-portfolio/
-├─ index.html
-├─ assets/
-│ ├─ css/
-│ │ └─ site.css
-│ └─ js/
-│ └─ site.js
+├─ docs/
+│ ├─ assets/
+│ │ ├─ css/
+│ │ │ └─ site.css
+│ │ └─ js/
+│ │   └─ site.js
+│ └─ pages/
+│   └─ index.html
 └─ README.md
 ```
 

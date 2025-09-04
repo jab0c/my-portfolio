@@ -1,0 +1,301 @@
+:root{
+  /* Dark (default) */
+  --bg: #0b0f14;
+  --bg-soft:#0f141a;
+  --card:#121924;
+  --text:#e6edf3;
+  --muted:#b9c2cc;          /* lighter for readability */
+  --primary:#6ea8fe;
+  --chip: rgba(255,255,255,.08);
+}
+
+html,body{height:100%}
+body{
+  padding-top:72px;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(110,168,254,.20), transparent 60%),
+  radial-gradient(1200px 600px at 120% 0%, rgba(56,189,248,.12), transparent 50%),
+  var(--bg);
+  color: var(--text);
+}
+
+/* Typography */
+.fw-700{font-weight:700}
+.fw-800{font-weight:800}
+.lead{color:var(--muted)}
+.text-muted-strong{color:var(--muted)!important}
+.gradient-text{
+  background: linear-gradient(90deg,#8ec5ff, #b195ff 60%, #8ec5ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* Sections */
+.section-pad{padding:5rem 0}
+.bg-soft{background:var(--bg-soft)}
+.bg-skeleton{background: #0e1520}
+.object-fit-cover{object-fit:cover}
+
+/* Navbar */
+.bg-blur{
+  background: rgba(10,15,20,.65);
+  backdrop-filter: blur(8px);
+}
+
+/* Cards / effects */
+.glass{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.06);
+}
+.shadow-soft{box-shadow: 0 10px 30px rgba(0,0,0,.25)}
+.lift{transition: transform .2s ease, box-shadow .2s ease}
+.lift:hover{transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,.35)}
+
+/* Hero */
+.hero-section{padding-top:4rem}
+.hero-section .py-6{padding-top:3.5rem;padding-bottom:3.5rem}
+
+/* Stack items */
+.stack-item{
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  padding:1rem 1.25rem;border-radius:.75rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+
+/* Chips */
+.text-chip{
+  background: var(--chip);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* Buttons */
+.btn{border-radius:.75rem}
+.btn-lg{border-radius:.9rem}
+
+/* Links */
+a.link-secondary{color:var(--muted);text-decoration:none}
+a.link-secondary:hover{color:#c9d2dc}
+
+/* Footer */
+footer a{text-decoration:none}
+
+/* Light mode (explicit white) */
+:root[data-theme="light"]{
+  --bg:#ffffff;          /* true white */
+  --bg-soft:#f8f9fa;     /* near-white section bg */
+  --card:#ffffff;
+  --text:#111418;        /* strong dark */
+  --muted:#5b6570;       /* readable gray */
+  --primary:#0d6efd;
+  --chip: rgba(0,0,0,.05);
+}
+
+:root[data-theme="light"] body{
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(13,110,253,.10), transparent 60%),
+    radial-gradient(1200px 600px at 120% 0%, rgba(32,201,151,.08), transparent 50%),
+    var(--bg);
+  color:var(--text);
+}
+:root[data-theme="light"] .bg-skeleton{background:#e9ecef}
+:root[data-theme="light"] .glass{background:#ffffffcc;border-color:#00000011}
+:root[data-theme="light"] .bg-blur{
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(8px);
+}
+:root[data-theme="light"] a.link-secondary:hover{color:#0b5ed7}
+
+/* === Contrast/border fixes === */
+:root{
+  --border: rgba(255,255,255,.12);
+  --border-weak: rgba(255,255,255,.08);
+}
+:root[data-theme="light"]{
+  --border: rgba(0,0,0,.14);
+  --border-weak: rgba(0,0,0,.08);
+}
+
+/* Make glass/borders a bit stronger */
+.glass{ border: 1px solid var(--border); }
+.card, .stack-item { border: 1px solid var(--border-weak) !important; }
+
+/* Ensure all "muted" text is readable on dark */
+.text-muted-strong, .lead { color: var(--muted) !important; }
+
+/* Badges: replace ultra-pale BS "subtle" with our own readable variant */
+.badge,
+.badge.text-bg-dark-subtle,
+.badge.text-bg-primary-subtle,
+.badge.text-bg-success-subtle,
+.badge.text-bg-info-subtle,
+.badge.text-bg-warning-subtle {
+  background: var(--chip) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-weak) !important;
+  font-weight: 600;
+}
+
+/* Button outlines and form fields: clearer edges in both themes */
+.btn-outline-secondary { border-color: var(--border) !important; }
+.form-control {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.form-control:focus {
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.15);
+  border-color: #0d6efd;
+}
+
+/* Section separators (that soft gradient strip) – make it lighter in dark mode */
+.hero-section .ratio,
+.section-pad.bg-soft {
+  box-shadow: inset 0 1px 0 var(--border-weak), inset 0 -1px 0 var(--border-weak);
+}
+
+/* Footer + navbar lines a touch stronger */
+.navbar, footer { border-color: var(--border) !important; }
+
+/* Chips under project cards */
+.text-chip{ color: var(--text); }
+
+/* Form labels & placeholders in dark */
+:root[data-theme="dark"] .form-label {
+  color: var(--text) !important;
+}
+:root[data-theme="dark"] .form-control::placeholder {
+  color: var(--muted) !important;
+  opacity: 0.9;
+}
+
+/* Card text (like "Proof I actually ship") */
+:root[data-theme="dark"] .card-body,
+:root[data-theme="dark"] .card-footer {
+  color: var(--text) !important;
+}
+
+:root[data-theme="light"] .navbar-brand {
+  color: #212529 !important; /* bright blue brand */
+}
+:root[data-theme="light"] .navbar .nav-link {
+  color: #212529 !important; /* readable black links */
+}
+:root[data-theme="light"] .navbar .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+/* Theme switch styling */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch-label {
+  cursor: pointer;
+  background: var(--border-weak);
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s ease;
+}
+.theme-switch input:checked + .switch-label {
+  background: var(--primary);
+  color: #fff;
+}
+.switch-label i {
+  font-size: 1rem;
+  transition: transform .3s ease, color .3s ease;
+}
+.theme-switch input:checked + .switch-label i {
+  transform: rotate(180deg);
+}
+
+/* === Theme switch (slider) === */
+:root {
+  --switch-w: 48px;
+  --switch-h: 28px;
+  --switch-pad: 4px;
+  --switch-radius: 14px;
+  --switch-dur: 180ms;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  user-select: none;
+}
+
+.theme-toggle__label {
+  font-size: .8rem;
+  letter-spacing: .02em;
+}
+
+.theme-toggle__label { color: var(--muted) !important; }
+
+.theme-toggle__label--dark { text-transform: uppercase; }
+.theme-toggle__label--light { text-transform: uppercase; }
+
+/* Button becomes the track; knob is ::before; halo is ::after */
+.theme-switch {
+  position: relative;
+  inline-size: var(--switch-w);
+  block-size: var(--switch-h);
+  border: 0;
+  border-radius: var(--switch-radius);
+  background: var(--border, #e5e7eb);
+  cursor: pointer;
+  padding: 0;
+  outline-offset: 4px;
+  transition: background var(--switch-dur) ease;
+}
+:root[data-theme="dark"] .theme-switch { background: #3a3f46; }
+
+.theme-switch::before {
+  content: "";
+  position: absolute;
+  inset-block-start: var(--switch-pad);
+  inset-inline-start: var(--switch-pad);
+  inline-size: calc(var(--switch-h) - var(--switch-pad) * 2);
+  block-size: calc(var(--switch-h) - var(--switch-pad) * 2);
+  border-radius: 999px;
+  .theme-switch::before { background: #fff; }                 /* light knob */
+  :root[data-theme="dark"] .theme-switch::before { background: #0f172a; } /* dark knob */
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  transition: inset-inline-start var(--switch-dur) ease, background var(--switch-dur) ease;
+}
+.dark .theme-switch::before { background: #0f172a; }
+
+/* subtle hover/active */
+.theme-switch:hover { filter: brightness(1.03); }
+.theme-switch:active::before { transform: scale(.96); }
+
+/* when dark is ON we slide the knob right via [data-theme="dark"] */
+:root[data-theme="dark"] .theme-switch::before {
+  inset-inline-start: calc(var(--switch-w) - var(--switch-h) + var(--switch-pad));
+}
+
+/* Optional inner icon that travels with the knob */
+.theme-switch__icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: var(--switch-pad);
+  transform: translateY(-70%);
+  inline-size: 16px;
+  block-size: 16px;
+  fill: currentColor;
+  color: #0f172a;
+  transition: inset-inline-start var(--switch-dur) ease, color var(--switch-dur) ease;
+}
+:root[data-theme="dark"] .theme-switch__icon {
+  inset-inline-start: calc(var(--switch-w) - var(--switch-h) + var(--switch-pad));
+  color: #f8fafc;
+}
