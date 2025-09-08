@@ -310,3 +310,32 @@ footer a{text-decoration:none}
 :root[data-theme="light"] .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(33,37,41,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
+/* Quick actions (hero) */
+.quick-actions{ display:flex; gap:.5rem; flex-wrap:wrap; }
+.qa-btn{
+  padding:.55rem .9rem; border-radius:.6rem; font-weight:600; font-size:.95rem;
+  border:1px solid var(--border, #2f3642); color:var(--text, #dfe6f3);
+  text-decoration:none;
+  background: color-mix(in oklab, var(--bg, #0e141b) 80%, white 20%);
+}
+:root[data-theme="light"] .qa-btn{
+  background:#f4f6fb; border-color:#cfd6e4; color:#1b2230;
+}
+.qa-btn:focus-visible{ outline:2px solid var(--primary, #5b8cff); outline-offset:2px; }
+
+/* Section hints (prev/next “watermarks”) */
+.block{ position:relative; scroll-margin-top:72px; }
+.section-hint{
+  position:sticky; z-index:1; opacity:0; pointer-events:none;
+  text-align:center; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; font-size:.74rem;
+  color: color-mix(in oklab, var(--text, #cfd8e6) 40%, transparent);
+  transition: opacity .25s ease;
+}
+.section-hint.top{    top:   0; padding:.35rem 0; }
+.section-hint.bottom{ bottom:0; padding:.35rem 0; }
+.block.is-active .section-hint{ opacity:.9; }
+
+/* Tiny extra breathing room between theme toggle and nav items */
+.navbar .theme-switch{ margin-inline-end:.5rem; }
