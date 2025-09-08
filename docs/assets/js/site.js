@@ -116,3 +116,24 @@ ${message}
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   });
 });
+
+// ===== Section hints (prev/next labels) + active highlight
+const _sections = Array.from(document.querySelectorAll('section.block'));
+if (_sections.length){
+  _sections.forEach((s, i) => {
+    const prev = _sections[i-1]?.dataset.title || '';
+    const next = _sections[i+1]?.dataset.title || '';
+    const top    = s.querySelector('.section-hint.top');
+    const bottom = s.querySelector('.section-hint.bottom');
+    if (top)    top.textContent    = prev;
+    if (bottom) bottom.textContent = next;
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      e.target.classList.toggle('is-active', e.isIntersecting && e.intersectionRatio > 0.6);
+    });
+  }, { rootMargin: '-20% 0px -60% 0px', threshold: [0.6] });
+
+  _sections.forEach(s => io.observe(s));
+}
