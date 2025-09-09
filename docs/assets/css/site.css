@@ -340,19 +340,26 @@ footer a{text-decoration:none}
 /* Tiny extra breathing room between theme toggle and nav items */
 .navbar .theme-switch{ margin-inline-end:.5rem; }
 
-/* Fix misaligned Contact button in hero */
+/* Make the 3 hero buttons behave the same */
 .hero .btn,
-.hero .qa-btn {
+.hero .qa-btn {                      /* keep your class if you have it */
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: .6rem;                        /* space between icon and text */
+  height: 44px;                      /* match the other buttons */
+  padding: 0 1rem;                   /* consistent padding */
   vertical-align: middle;
-  line-height: 1.4; /* match Bootstrap default */
+  line-height: 1.2;                  /* stable line box */
 }
 
-/* If you want *all three* to have same height */
-.hero .btn,
-.hero .qa-btn {
-  height: 44px; /* adjust if needed */
-  padding: 0 1rem;
+/* Normalize emoji box so it centers like an SVG/icon */
+.icon-emoji{
+  display: inline-grid;
+  place-items: center;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1;
+  /* tiny optical nudge (emojis often sit a hair low) */
+  transform: translateY(-1px);
 }
