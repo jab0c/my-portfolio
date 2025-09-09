@@ -339,3 +339,20 @@ footer a{text-decoration:none}
 
 /* Tiny extra breathing room between theme toggle and nav items */
 .navbar .theme-switch{ margin-inline-end:.5rem; }
+
+/* Fix misaligned Contact button in hero */
+.hero .btn,
+.hero .qa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1.4; /* match Bootstrap default */
+}
+
+/* If you want *all three* to have same height */
+.hero .btn,
+.hero .qa-btn {
+  height: 44px; /* adjust if needed */
+  padding: 0 1rem;
+}
