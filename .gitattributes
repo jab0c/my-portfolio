@@ -1,0 +1,5 @@
+docs/assets/** linguist-documentation=false
+docs/assets/** linguist-vendored=false
+
+*.css linguist-detectable=true
+*.js  linguist-detectable=true
