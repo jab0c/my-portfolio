@@ -1,225 +1,25 @@
-:root{
-  /* Dark (default) */
-  --bg: #0b0f14;
-  --bg-soft:#0f141a;
-  --card:#121924;
-  --text:#e6edf3;
-  --muted:#b9c2cc;          /* lighter for readability */
-  --primary:#6ea8fe;
+/* =========================
+   Design Tokens (the contract)
+   ========================= */
+:root {
+  /* Surfaces */
+  --surface-0: #0b0f14;     /* page bg (dark default) */
+  --surface-1: #0f141a;     /* soft section bg */
+  --surface-2: #121924;     /* cards */
   --chip: rgba(255,255,255,.08);
-}
 
-html,body{height:100%}
-body{
-  padding-top:72px;
-  background: radial-gradient(1200px 600px at 20% -10%, rgba(110,168,254,.20), transparent 60%),
-  radial-gradient(1200px 600px at 120% 0%, rgba(56,189,248,.12), transparent 50%),
-  var(--bg);
-  color: var(--text);
-}
+  /* Text */
+  --text-strong: #e6edf3;
+  --text-muted:  #b9c2cc;
 
-/* Typography */
-.fw-700{font-weight:700}
-.fw-800{font-weight:800}
-.lead{color:var(--muted)}
-.text-muted-strong{color:var(--muted)!important}
-.gradient-text{
-  background: linear-gradient(90deg,#8ec5ff, #b195ff 60%, #8ec5ff 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+  /* Brand / Accent */
+  --brand: #6ea8fe;
 
-/* Sections */
-.section-pad{padding:5rem 0}
-.bg-soft{background:var(--bg-soft)}
-.bg-skeleton{background: #0e1520}
-.object-fit-cover{object-fit:cover}
-
-/* Navbar */
-.bg-blur{
-  background: rgba(10,15,20,.65);
-  backdrop-filter: blur(8px);
-}
-
-/* Cards / effects */
-.glass{
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border: 1px solid rgba(255,255,255,.06);
-}
-.shadow-soft{box-shadow: 0 10px 30px rgba(0,0,0,.25)}
-.lift{transition: transform .2s ease, box-shadow .2s ease}
-.lift:hover{transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,.35)}
-
-/* Hero */
-.hero-section{padding-top:4rem}
-.hero-section .py-6{padding-top:3.5rem;padding-bottom:3.5rem}
-
-/* Stack items */
-.stack-item{
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-  padding:1rem 1.25rem;border-radius:.75rem;
-  display:flex;align-items:center;gap:.5rem;
-}
-
-/* Chips */
-.text-chip{
-  background: var(--chip);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-/* Buttons */
-.btn{border-radius:.75rem}
-.btn-lg{border-radius:.9rem}
-
-/* Links */
-a.link-secondary{color:var(--muted);text-decoration:none}
-a.link-secondary:hover{color:#c9d2dc}
-
-/* Footer */
-footer a{text-decoration:none}
-
-/* Light mode (explicit white) */
-:root[data-theme="light"]{
-  --bg:#ffffff;          /* true white */
-  --bg-soft:#f8f9fa;     /* near-white section bg */
-  --card:#ffffff;
-  --text:#111418;        /* strong dark */
-  --muted:#5b6570;       /* readable gray */
-  --primary:#0d6efd;
-  --chip: rgba(0,0,0,.05);
-}
-
-:root[data-theme="light"] body{
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(13,110,253,.10), transparent 60%),
-    radial-gradient(1200px 600px at 120% 0%, rgba(32,201,151,.08), transparent 50%),
-    var(--bg);
-  color:var(--text);
-}
-:root[data-theme="light"] .bg-skeleton{background:#e9ecef}
-:root[data-theme="light"] .glass{background:#ffffffcc;border-color:#00000011}
-:root[data-theme="light"] .bg-blur{
-  background: rgba(255,255,255,.7);
-  backdrop-filter: blur(8px);
-}
-:root[data-theme="light"] a.link-secondary:hover{color:#0b5ed7}
-
-/* === Contrast/border fixes === */
-:root{
+  /* Borders / shadows */
   --border: rgba(255,255,255,.12);
   --border-weak: rgba(255,255,255,.08);
-}
-:root[data-theme="light"]{
-  --border: rgba(0,0,0,.14);
-  --border-weak: rgba(0,0,0,.08);
-}
 
-/* Make glass/borders a bit stronger */
-.glass{ border: 1px solid var(--border); }
-.card, .stack-item { border: 1px solid var(--border-weak) !important; }
-
-/* Ensure all "muted" text is readable on dark */
-.text-muted-strong, .lead { color: var(--muted) !important; }
-
-/* Badges: replace ultra-pale BS "subtle" with our own readable variant */
-.badge,
-.badge.text-bg-dark-subtle,
-.badge.text-bg-primary-subtle,
-.badge.text-bg-success-subtle,
-.badge.text-bg-info-subtle,
-.badge.text-bg-warning-subtle {
-  background: var(--chip) !important;
-  color: var(--text) !important;
-  border: 1px solid var(--border-weak) !important;
-  font-weight: 600;
-}
-
-/* Button outlines and form fields: clearer edges in both themes */
-.btn-outline-secondary { border-color: var(--border) !important; }
-.form-control {
-  background-color: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-.form-control:focus {
-  box-shadow: 0 0 0 .25rem rgba(13,110,253,.15);
-  border-color: #0d6efd;
-}
-
-/* Section separators (that soft gradient strip) – make it lighter in dark mode */
-.hero-section .ratio,
-.section-pad.bg-soft {
-  box-shadow: inset 0 1px 0 var(--border-weak), inset 0 -1px 0 var(--border-weak);
-}
-
-/* Footer + navbar lines a touch stronger */
-.navbar, footer { border-color: var(--border) !important; }
-
-/* Chips under project cards */
-.text-chip{ color: var(--text); }
-
-/* Form labels & placeholders in dark */
-:root[data-theme="dark"] .form-label {
-  color: var(--text) !important;
-}
-:root[data-theme="dark"] .form-control::placeholder {
-  color: var(--muted) !important;
-  opacity: 0.9;
-}
-
-/* Card text (like "Proof I actually ship") */
-:root[data-theme="dark"] .card-body,
-:root[data-theme="dark"] .card-footer {
-  color: var(--text) !important;
-}
-
-:root[data-theme="light"] .navbar-brand {
-  color: #212529 !important; /* bright blue brand */
-}
-:root[data-theme="light"] .navbar .nav-link {
-  color: #212529 !important; /* readable black links */
-}
-:root[data-theme="light"] .navbar .nav-link:hover {
-  color: #0d6efd !important;
-}
-
-/* Theme switch styling */
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 48px;
-  height: 26px;
-}
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.switch-label {
-  cursor: pointer;
-  background: var(--border-weak);
-  border-radius: 50px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .3s ease;
-}
-.theme-switch input:checked + .switch-label {
-  background: var(--primary);
-  color: #fff;
-}
-.switch-label i {
-  font-size: 1rem;
-  transition: transform .3s ease, color .3s ease;
-}
-.theme-switch input:checked + .switch-label i {
-  transform: rotate(180deg);
-}
-
-/* === Theme switch (slider) === */
-:root {
+  /* Switch (slider) */
   --switch-w: 48px;
   --switch-h: 28px;
   --switch-pad: 4px;
@@ -227,139 +27,270 @@ footer a{text-decoration:none}
   --switch-dur: 180ms;
 }
 
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  user-select: none;
+/* Light theme overrides */
+:root[data-theme="light"]{
+  --surface-0: #ffffff;
+  --surface-1: #f8f9fa;
+  --surface-2: #ffffff;
+  --chip: rgba(0,0,0,.05);
+
+  --text-strong: #111418;
+  --text-muted:  #5b6570;
+
+  --brand: #0d6efd;
+
+  --border: rgba(0,0,0,.14);
+  --border-weak: rgba(0,0,0,.08);
 }
 
-.theme-toggle__label {
-  font-size: .8rem;
-  letter-spacing: .02em;
+/* =========================
+   Global / Layout
+   ========================= */
+html,body { height:100% }
+body{
+  padding-top:72px;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, color-mix(in oklab, var(--brand) 35%, transparent), transparent 60%),
+    radial-gradient(1200px 600px at 120% 0%, color-mix(in oklab, var(--brand) 25%, transparent), transparent 50%),
+    var(--surface-0);
+  color: var(--text-strong);
 }
 
-.theme-toggle__label { color: var(--muted) !important; }
-
-.theme-toggle__label--dark { text-transform: uppercase; }
-.theme-toggle__label--light { text-transform: uppercase; }
-
-/* Button becomes the track; knob is ::before; halo is ::after */
-.theme-switch {
-  position: relative;
-  inline-size: var(--switch-w);
-  block-size: var(--switch-h);
-  border: 0;
-  border-radius: var(--switch-radius);
-  background: var(--border, #e5e7eb);
-  cursor: pointer;
-  padding: 0;
-  outline-offset: 4px;
-  transition: background var(--switch-dur) ease;
-}
-:root[data-theme="dark"] .theme-switch { background: #3a3f46; }
-
-.theme-switch::before {
-  content: "";
-  position: absolute;
-  inset-block-start: var(--switch-pad);
-  inset-inline-start: var(--switch-pad);
-  inline-size: calc(var(--switch-h) - var(--switch-pad) * 2);
-  block-size: calc(var(--switch-h) - var(--switch-pad) * 2);
-  border-radius: 999px;
-  .theme-switch::before { background: #fff; }                 /* light knob */
-  :root[data-theme="dark"] .theme-switch::before { background: #0f172a; } /* dark knob */
-  box-shadow: 0 1px 2px rgba(0,0,0,.12);
-  transition: inset-inline-start var(--switch-dur) ease, background var(--switch-dur) ease;
-}
-.dark .theme-switch::before { background: #0f172a; }
-
-/* subtle hover/active */
-.theme-switch:hover { filter: brightness(1.03); }
-.theme-switch:active::before { transform: scale(.96); }
-
-/* when dark is ON we slide the knob right via [data-theme="dark"] */
-:root[data-theme="dark"] .theme-switch::before {
-  inset-inline-start: calc(var(--switch-w) - var(--switch-h) + var(--switch-pad));
+/* Light needs gentler background accents */
+:root[data-theme="light"] body{
+  background:
+    radial-gradient(1200px 600px at 20% -10%, color-mix(in oklab, var(--brand) 18%, transparent), transparent 60%),
+    radial-gradient(1200px 600px at 120% 0%, color-mix(in oklab, #20c997 14%, transparent), transparent 50%),
+    var(--surface-0);
 }
 
-/* Optional inner icon that travels with the knob */
-.theme-switch__icon {
-  position: absolute;
-  inset-block-start: 50%;
-  inset-inline-start: var(--switch-pad);
-  transform: translateY(-70%);
-  inline-size: 16px;
-  block-size: 16px;
-  fill: currentColor;
-  color: #0f172a;
-  transition: inset-inline-start var(--switch-dur) ease, color var(--switch-dur) ease;
-}
-:root[data-theme="dark"] .theme-switch__icon {
-  inset-inline-start: calc(var(--switch-w) - var(--switch-h) + var(--switch-pad));
-  color: #f8fafc;
+/* =========================
+   Type & Utilities
+   ========================= */
+.fw-700{font-weight:700}
+.fw-800{font-weight:800}
+.lead,
+.text-muted-strong{ color: var(--text-muted) !important }
+
+.gradient-text{
+  background: linear-gradient(90deg,#8ec5ff, #b195ff 60%, #8ec5ff 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 
-/* Light mode: black bars + subtle gray outline */
+.section-pad{ padding:5rem 0 }
+.bg-soft{ background: var(--surface-1) }
+.bg-skeleton{ background: #0e1520 }
+:root[data-theme="light"] .bg-skeleton{ background:#e9ecef }
+.object-fit-cover{ object-fit:cover }
+
+/* =========================
+   Navbar & Footer
+   ========================= */
+.bg-blur{
+  background: color-mix(in oklab, var(--surface-0) 65%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.navbar, footer{ border-color: var(--border) !important; }
+
+:root[data-theme="light"] .navbar-brand { color:#212529 !important; }
+:root[data-theme="light"] .navbar .nav-link { color:#212529 !important; }
+:root[data-theme="light"] .navbar .nav-link:hover { color: var(--brand) !important; }
+
 :root[data-theme="light"] .navbar-toggler {
-  border: 1px solid rgba(0, 0, 0, 0.25); /* gray outline */
-  border-radius: 0.375rem;                /* rounded corners like Bootstrap buttons */
-  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: .375rem;
+  padding: .25rem .5rem;
 }
-
 :root[data-theme="light"] .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(33,37,41,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Quick actions (hero) */
+/* =========================
+   Cards / Effects
+   ========================= */
+.glass{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid var(--border);
+}
+.card, .stack-item { border: 1px solid var(--border-weak) !important; }
+
+.shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.25) }
+.lift{ transition: transform .2s ease, box-shadow .2s ease }
+.lift:hover{ transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,.35) }
+
+.stack-item{
+  background: rgba(255,255,255,.02);
+  padding:1rem 1.25rem; border-radius:.75rem;
+  display:flex; align-items:center; gap:.5rem;
+}
+
+/* Chips / Badges (Bootstrap overrides, but scoped & tokenized) */
+.text-chip{
+  background: var(--chip);
+  border: 1px solid var(--border-weak);
+  color: var(--text-strong);
+}
+.badge,
+.badge[class*="text-bg-"]{
+  background: var(--chip) !important;
+  color: var(--text-strong) !important;
+  border: 1px solid var(--border-weak) !important;
+  font-weight: 600;
+}
+
+/* =========================
+   Buttons & Links
+   ========================= */
+.btn{ border-radius:.75rem }
+.btn-lg{ border-radius:.9rem }
+.btn-outline-secondary { border-color: var(--border) !important; }
+
+/* GitHub button */
+.btn-github {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-strong);
+}
+
+:root[data-theme="light"] .btn-github {
+  background: #24292f;   /* GitHub brand black */
+  border-color: #24292f;
+  color: #ffffff;
+}
+:root[data-theme="light"] .btn-github:hover {
+  background: #000000;   /* deeper black on hover */
+  border-color: #ffffff;
+}
+
+a.link-secondary{ color: var(--text-muted); text-decoration:none }
+a.link-secondary:hover{
+  color: color-mix(in oklab, var(--text-strong) 85%, white 15%);
+}
+:root[data-theme="light"] a.link-secondary:hover{ color:#0b5ed7 }
+
+/* =========================
+   Forms
+   ========================= */
+.form-control{
+  background-color: transparent;
+  color: var(--text-strong);
+  border: 1px solid var(--border);
+}
+.form-control:focus{
+  box-shadow: 0 0 0 .25rem color-mix(in oklab, var(--brand) 25%, transparent);
+  border-color: var(--brand);
+}
+:root[data-theme="dark"] .form-label{ color: var(--text-strong) !important; }
+:root[data-theme="dark"] .form-control::placeholder{
+  color: var(--text-muted) !important; opacity:.9;
+}
+
+:root[data-theme="dark"] .card-body,
+:root[data-theme="dark"] .card-footer{ color: var(--text-strong) !important; }
+
+/* =========================
+   Hero & Sections
+   ========================= */
+.hero-section{ padding-top:4rem }
+.hero-section .py-6{ padding-top:3.5rem; padding-bottom:3.5rem }
+
+.hero .btn,
+.hero .qa-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.6rem; height:44px; padding:0 1rem; line-height:1.2;
+}
+
+/* Section separators */
+.hero-section .ratio,
+.section-pad.bg-soft{
+  box-shadow: inset 0 1px 0 var(--border-weak), inset 0 -1px 0 var(--border-weak);
+}
+
+/* =========================
+   Quick Actions
+   ========================= */
 .quick-actions{ display:flex; gap:.5rem; flex-wrap:wrap; }
 .qa-btn{
   padding:.55rem .9rem; border-radius:.6rem; font-weight:600; font-size:.95rem;
-  border:1px solid var(--border, #2f3642); color:var(--text, #dfe6f3);
+  border:1px solid var(--border);
+  color: var(--text-strong);
   text-decoration:none;
-  background: color-mix(in oklab, var(--bg, #0e141b) 80%, white 20%);
+  background: color-mix(in oklab, var(--surface-0) 80%, white 20%);
 }
 :root[data-theme="light"] .qa-btn{
   background:#f4f6fb; border-color:#cfd6e4; color:#1b2230;
 }
-.qa-btn:focus-visible{ outline:2px solid var(--primary, #5b8cff); outline-offset:2px; }
+.qa-btn:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
 
-/* Section hints (prev/next “watermarks”) */
+/* =========================
+   Sticky Section Hints
+   ========================= */
 .block{ position:relative; scroll-margin-top:72px; }
 .section-hint{
   position:sticky; z-index:1; opacity:0; pointer-events:none;
   text-align:center; font-weight:700; letter-spacing:.06em;
   text-transform:uppercase; font-size:.74rem;
-  color: color-mix(in oklab, var(--text, #cfd8e6) 40%, transparent);
+  color: color-mix(in oklab, var(--text-strong) 40%, transparent);
   transition: opacity .25s ease;
 }
-.section-hint.top{    top:   0; padding:.35rem 0; }
-.section-hint.bottom{ bottom:0; padding:.35rem 0; }
-.block.is-active .section-hint{ opacity:.9; }
+.section-hint.top{ top:0; padding:.35rem 0 }
+.section-hint.bottom{ bottom:0; padding:.35rem 0 }
+.block.is-active .section-hint{ opacity:.9 }
 
-/* Tiny extra breathing room between theme toggle and nav items */
-.navbar .theme-switch{ margin-inline-end:.5rem; }
+/* tiny spacing between theme toggle and nav items */
+.navbar .theme-switch{ margin-inline-end:.5rem }
 
-/* Make the 3 hero buttons behave the same */
-.hero .btn,
-.hero .qa-btn {                      /* keep your class if you have it */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .6rem;                        /* space between icon and text */
-  height: 44px;                      /* match the other buttons */
-  padding: 0 1rem;                   /* consistent padding */
-  vertical-align: middle;
-  line-height: 1.2;                  /* stable line box */
+/* Normalize emoji box so it centers like an SVG */
+.icon-emoji{
+  display:inline-grid; place-items:center;
+  width:1.2em; height:1.2em; line-height:1;
+  transform: translateY(-1px);
 }
 
-/* Normalize emoji box so it centers like an SVG/icon */
-.icon-emoji{
-  display: inline-grid;
-  place-items: center;
-  width: 1.2em;
-  height: 1.2em;
-  line-height: 1;
-  /* tiny optical nudge (emojis often sit a hair low) */
-  transform: translateY(-1px);
+/* =========================
+   THEME SWITCH (single, slider version)
+   ========================= */
+.theme-toggle{ display:inline-flex; align-items:center; gap:.4rem; user-select:none; }
+.theme-toggle__label{ font-size:.8rem; letter-spacing:.02em; color: var(--text-muted) !important; }
+.theme-toggle__label--dark,
+.theme-toggle__label--light{ text-transform:uppercase; }
+
+.theme-toggle__label {
+  text-decoration: none !important;   /* kill underline */
+  color: var(--text-muted) !important;
+  font-weight: 600;                   /* optional, makes it stand out a bit */
+}
+.theme-toggle__label:hover {
+  text-decoration: none !important;   /* stay clean on hover */
+  color: var(--text-strong);          /* optional hover color */
+}
+
+/* Track */
+.theme-switch{
+  position:relative; inline-size:var(--switch-w); block-size:var(--switch-h);
+  border-radius:var(--switch-radius); background: var(--border-weak);
+  cursor:pointer; padding:0; border:0; outline-offset:4px;
+  transition: background var(--switch-dur) ease, filter .2s ease;
+  margin-inline:.4rem
+}
+:root[data-theme="dark"] .theme-switch{ background:#3a3f46; }
+.theme-switch:hover{ filter: brightness(1.03); }
+
+/* Knob */
+.theme-switch::before{
+  content:none;
+}
+
+/* Let the icon itself slide */
+.theme-switch__icon{
+  position:absolute; inset-block-start:50%; inset-inline-start:var(--switch-pad);
+  transform: translateY(-76%); inline-size:20px; block-size:16px; fill:currentColor;
+  color:#0f172a; transition: inset-inline-start var(--switch-dur) ease, color var(--switch-dur) ease;
+}
+
+/* Move it to the right in dark mode */
+:root[data-theme="dark"] .theme-switch__icon{
+  inset-inline-start: calc(var(--switch-w) - var(--switch-h) + var(--switch-pad));
+  color:#f8fafc;
 }

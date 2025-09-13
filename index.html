@@ -3,9 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Jacob Delasoudas · Software Engineer (AI & Automation)</title>
   <meta name="description" content="I build AI/automation systems, web apps, and software that ships. Fast, clean, professional." />
+  <meta name="author" content="Jacob Delasoudas" />
   <meta name="theme-color" content="#0d1117" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Jacob Delasoudas · Software Engineer" />
+  <meta property="og:description" content="AI/automation, web apps, and software that ships." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (single file; no theme swapping yet) -->
+  <link rel="icon" href="favicon.svg" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="docs/assets/css/site.css" rel="stylesheet" />
@@ -16,19 +29,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-blur fixed-top border-bottom border-dark-subtle">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">jab0c<span class="text-primary">()</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div id="nav" class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
         <li class="nav-item">
-          <!-- Theme switch (as you have it) -->
-          <div class="theme-toggle" id="theme-toggle">
-            <span class="theme-toggle__label theme-toggle__label--dark">Light</span>
-            <button id="theme-switch" class="theme-switch" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <!-- Accessible theme toggle: labels are clickable -->
+          <div class="theme-toggle" id="theme-toggle" role="group" aria-label="Theme">
+            <button type="button" class="btn btn-link p-0 theme-toggle__label theme-toggle__label--dark" data-theme-choice="light">Light</button>
+            <button id="theme-switch" class="theme-switch" type="button" aria-label="Toggle dark mode" aria-pressed="true">
               <i id="themeIcon" class="bi bi-moon-stars theme-switch__icon" aria-hidden="true"></i>
             </button>
-            <span class="theme-toggle__label theme-toggle__label--light">Dark</span>
+            <button type="button" class="btn btn-link p-0 theme-toggle__label theme-toggle__label--light" data-theme-choice="dark">Dark</button>
           </div>
         </li>
         <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
@@ -48,26 +62,25 @@
         <span class="badge rounded-pill text-bg-dark-subtle border border-secondary-subtle me-2">AI & Automation</span>
         <span class="badge rounded-pill text-bg-primary-subtle border border-primary-subtle">Full-Stack Delivery</span>
         <h1 class="display-5 fw-800 mt-3">
-          I code. <br> <span class="gradient-text">You get the product.</span> </br>
+          I code. <br> <span class="gradient-text">You get the product.</span>
         </h1>
-        
-        <!-- quick-scan checklist -->
-        <ul class="list-unstyled d-grid gap-2 mt-3 small">
+
+        <ul class="list-unstyled d-grid gap-2 mt-3 small" aria-label="What I deliver">
           <li>✅ Websites (static & dynamic)</li>
           <li>✅ Web Apps</li>
           <li>✅ Small tools & automations</li>
           <li>✅ AI-powered systems</li>
           <li>✅ Large applications</li>
         </ul>
-        
-        <div class="d-flex flex-wrap gap-3 mt-4">
+
+        <div class="d-flex flex-wrap gap-3 mt-4 hero">
           <a class="btn btn-primary btn-lg shadow-soft" href="#work">
             <i class="bi bi-rocket-takeoff me-2"></i>See my work
           </a>
-          <a class="btn btn-outline-light btn-lg" href="https://github.com/jab0c" target="_blank" rel="noopener">
+          <a class="btn btn-github btn-lg" href="https://github.com/jab0c" target="_blank" rel="noopener">
             <i class="bi bi-github me-2"></i>GitHub
           </a>
-					<a href="#contact" class="btn btn-secondary qa-btn btn-contact">
+          <a href="#contact" class="btn btn-secondary qa-btn btn-contact">
             <span class="icon-emoji">📞</span>
             <span>Contact</span>
           </a>
@@ -76,10 +89,20 @@
           <i class="bi bi-lightning-charge-fill me-1"></i> Performance-first • <i class="bi bi-shield-lock-fill mx-1"></i> Security-minded • <i class="bi bi-gear-fill mx-1"></i> Maintainable
         </div>
       </div>
+
       <div class="col-lg-5">
         <div class="glass card border-0 shadow-soft overflow-hidden">
           <div class="ratio ratio-16x9 bg-skeleton">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Clean code & product UI banner" loading="lazy">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+              srcset="
+                https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=70 600w,
+                https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=75 900w,
+                https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80 1200w"
+              sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 500px"
+              class="w-100 h-100 object-fit-cover"
+              alt="Clean code & product UI banner"
+              loading="lazy">
           </div>
           <div class="card-body">
             <p class="mb-0 small text-muted-strong">Recent: AI maze agent vs pathfinding + streamlit risk dashboards + portfolio revamp.</p>
@@ -91,7 +114,7 @@
 </header>
 
 <!-- Work -->
-<section id="work" class="section-pad container">
+<section id="work" class="section-pad container block" data-title="Work">
   <div class="section-hint top" aria-hidden="true"></div>
   <div class="d-flex align-items-baseline justify-content-between mb-3">
     <h2 class="h1 fw-800">Selected Work</h2>
@@ -99,11 +122,18 @@
   </div>
 
   <div class="row g-4">
-    <!-- Example cards kept (replace links/images as you go) -->
+    <!-- Cards -->
     <div class="col-md-6 col-lg-4">
       <article class="card h-100 lift glass border-0">
         <div class="ratio ratio-16x9 bg-skeleton">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Portfolio website preview" loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+            srcset="
+              https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=70 600w,
+              https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=75 900w,
+              https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80 1200w"
+            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 350px"
+            class="w-100 h-100 object-fit-cover" alt="Portfolio website preview" loading="lazy">
         </div>
         <div class="card-body">
           <h3 class="h5 fw-700">This Portfolio</h3>
@@ -124,7 +154,14 @@
     <div class="col-md-6 col-lg-4">
       <article class="card h-100 lift glass border-0">
         <div class="ratio ratio-16x9 bg-skeleton">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Analytics dashboard preview" loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80"
+            srcset="
+              https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=600&q=70 600w,
+              https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=75 900w,
+              https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80 1200w"
+            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 350px"
+            class="w-100 h-100 object-fit-cover" alt="Analytics dashboard preview" loading="lazy">
         </div>
         <div class="card-body">
           <h3 class="h5 fw-700">FTMO-Lab (Backtesting)</h3>
@@ -145,7 +182,14 @@
     <div class="col-md-6 col-lg-4">
       <article class="card h-100 lift glass border-0">
         <div class="ratio ratio-16x9 bg-skeleton">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Unity ML Agents maze preview" loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+            srcset="
+              https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=70 600w,
+              https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=75 900w,
+              https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80 1200w"
+            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 350px"
+            class="w-100 h-100 object-fit-cover" alt="Unity ML Agents maze preview" loading="lazy">
         </div>
         <div class="card-body">
           <h3 class="h5 fw-700">Maze AI (Unity · ML-Agents)</h3>
@@ -163,11 +207,11 @@
       </article>
     </div>
   </div>
-  <div class="section-hint bottom aria-hidden="true"></div>
+  <div class="section-hint bottom" aria-hidden="true"></div>
 </section>
 
-<!-- Capabilities & Stack -->
-<section id="stack" class="section-pad bg-soft">
+<!-- Capabilities -->
+<section id="stack" class="section-pad bg-soft block" data-title="Stack">
   <div class="section-hint top" aria-hidden="true"></div>
   <div class="container">
     <h2 class="h1 fw-800 mb-4">Capabilities & Tech Stack</h2>
@@ -175,45 +219,27 @@
       “Tech Stack” = the main technologies and tools I use to build and ship projects.
     </p>
     <div class="row g-3">
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-cpu"></i> AI/ML (PPO, RL, ONNX)</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-diagram-3"></i> Automation & Pipelines</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-bootstrap"></i> Bootstrap / Web UI</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-filetype-js"></i> JavaScript</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-filetype-py"></i> Python · Streamlit</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-controller"></i> Unity · C#</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-github"></i> GitHub Actions/CI</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stack-item"><i class="bi bi-shield-check"></i> Security & A11y</div>
-      </div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-cpu"></i> AI/ML (PPO, RL, ONNX)</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-diagram-3"></i> Automation & Pipelines</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-bootstrap"></i> Bootstrap / Web UI</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-filetype-js"></i> JavaScript</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-filetype-py"></i> Python · Streamlit</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-controller"></i> Unity · C#</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-github"></i> GitHub Actions/CI</div></div>
+      <div class="col-6 col-md-3"><div class="stack-item"><i class="bi bi-shield-check"></i> Security & A11y</div></div>
     </div>
   </div>
   <div class="section-hint bottom" aria-hidden="true"></div>
 </section>
 
 <!-- About -->
-<section id="about" class="section-pad container">
+<section id="about" class="section-pad container block" data-title="About">
   <div class="section-hint top" aria-hidden="true"></div>
   <div class="row g-5 align-items-center">
     <div class="col-lg-6">
       <h2 class="h1 fw-800">About me</h2>
-      <p class="">
-        I’m Jacob — IT graduate (Deree) specialized in <strong>Artificial Intelligence & Automation</strong>.
-        I build systems that are fast, reliable, and easy to maintain — from reinforcement-learning agents and data tools to polished web apps.
-      </p>
+      <p>I’m Jacob — IT graduate (Deree) specialized in <strong>Artificial Intelligence & Automation</strong>.
+        I build systems that are fast, reliable, and easy to maintain — from reinforcement-learning agents and data tools to polished web apps.</p>
       <ul class="list-unstyled small text-muted-strong">
         <li><i class="bi bi-check-circle-fill me-2 text-success"></i>AI/ML experiments → usable products</li>
         <li><i class="bi bi-check-circle-fill me-2 text-success"></i>Automation, monitoring, clean deployments</li>
@@ -238,8 +264,8 @@
   <div class="section-hint bottom" aria-hidden="true"></div>
 </section>
 
-<!-- Contact (in-site form) -->
-<section id="contact" class="section-pad bg-soft">
+<!-- Contact -->
+<section id="contact" class="section-pad bg-soft block" data-title="Contact">
   <div class="section-hint top" aria-hidden="true"></div>
   <div class="container">
     <h2 class="h1 fw-800 mb-3">Let’s work</h2>
@@ -248,18 +274,18 @@
     <form id="contactForm" class="card glass border-0 shadow-soft p-3 p-md-4" novalidate>
       <div class="row g-3">
         <div class="col-md-6">
-          <label class="form-label">Name</label>
-          <input type="text" class="form-control" name="name" required />
+          <label class="form-label" for="name">Name</label>
+          <input id="name" type="text" class="form-control" name="name" required />
           <div class="invalid-feedback">Name is required.</div>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" name="email" required />
+          <label class="form-label" for="email">Email</label>
+          <input id="email" type="email" class="form-control" name="email" required />
           <div class="invalid-feedback">Valid email is required.</div>
         </div>
         <div class="col-12">
-          <label class="form-label">Project brief</label>
-          <textarea class="form-control" rows="4" name="message" placeholder="What are we building? Budget/timeline? Links?" required></textarea>
+          <label class="form-label" for="message">Project brief</label>
+          <textarea id="message" class="form-control" rows="4" name="message" placeholder="What are we building? Budget/timeline? Links?" required></textarea>
           <div class="invalid-feedback">Please write a short brief.</div>
         </div>
       </div>
@@ -272,6 +298,7 @@
       <p class="small text-muted-strong mt-3 mb-0" id="formNote">
         This form opens your email client with a prefilled message (no server needed). Prefer a backend? I can wire Formspree later.
       </p>
+      <div class="visually-hidden" aria-live="polite" id="formStatus"></div>
     </form>
   </div>
   <div class="section-hint bottom" aria-hidden="true"></div>
